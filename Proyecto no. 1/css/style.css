@@ -5,7 +5,8 @@
 
 body {
   margin: 0px;
-  font-family: 'Open Sans'
+  font-family: 'Open Sans';
+  background-color: #8E1958;
 }
 
 header {
@@ -94,6 +95,7 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: solid 0.1em rgb(200, 200, 200);
 }
 
 .about_work {
@@ -112,11 +114,17 @@ span {
 
 .about_me {
   text-align: left;
-  padding: 4em 4em;
+  color: white;
+  background: url("../images/Profile_pic_omar_montilla.png") no-repeat center center;
 }
 
 .about_me h3 {
-  margin-top: 70px;
+  margin: 70px 10% 50px 60%;
+  padding: 1em 1em;
+  width: 10em;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 1em;
+  font-weight: lighter;
 }
 
 picture {
@@ -141,17 +149,16 @@ footer {
   text-align: center;
   padding-top: 1em;
   overflow: hidden;
-  line-height: normal;
 }
 
        /*                Media queries                    */
 
 @media screen and (min-width: 768px) {
   .about_work {
-    width: 60vw;
+    width: 40vw;
   }
   .about_me {
-    width: 40vw;
+    width: 60vw;
   }
   .project_1, .project_2, .project_3,
   .project_4, .project_5, .project_6 {
