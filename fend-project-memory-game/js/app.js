@@ -4,10 +4,10 @@ const icons = ["fa fa-diamond","fa fa-paper-plane-o",
  "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond","fa fa-paper-plane-o",
  "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf",
  "fa fa-bicycle", "fa fa-bomb"];
- // * Display the cards on the page
- // * Shuffle the list of cards using the provided "shuffle" method below
+// * Display the cards on the page
+// * Shuffle the list of cards using the provided "shuffle" method below
 
- // Save the container of all cards in a const variable
+// Save the container of all cards in a const variable
 const cardsContainer=document.querySelector(".deck");
 
  let openedCards = [];
@@ -51,7 +51,7 @@ function sreset() {
   clockTimer();
 }
 
- // Shuffle function from http://stackoverflow.com/a/2450976
+// Shuffle function from http://stackoverflow.com/a/2450976
  function shuffle(array) {
      var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -65,8 +65,8 @@ function sreset() {
 
      return array;
  }
- // *   - loop through each card and create its HTML
- // *   - add each card's HTML to the page
+// *   - loop through each card and create its HTML
+// *   - add each card's HTML to the page
  function startGame() {
   const shuffledCards = shuffle(icons);
 
@@ -81,37 +81,37 @@ function sreset() {
 }
 
   function click(card) {
-  //Event listener for a card.
+//Event listener for a card.
   card.addEventListener("click", function () {
   const currentCard = this;
   const previousCard = openedCards[0];
 
-  // We have an existing OPENED card
+// We have an existing OPENED card
   if (openedCards.length === 1){
   card.classList.add("open", "show", "disable");
   openedCards.push(this);
 
-  //Compare both cards
+//Compare both cards
   if (this.innerHTML === openedCards[0].innerHTML) {
-  //Matched
+//Matched
   currentCard.classList.add("match");
   previousCard.classList.add("match");
 
   matchedCards.push(currentCard, previousCard);
   openedCards = [];
 
-  //Check if the game is over
+//Check if the game is over
   isOver();
 
   } else {
 
-   //wait 500 ms
+//wait 500 ms
   setTimeout ( function() {
   currentCard.classList.remove ("open","show", "disable");
   previousCard.classList.remove ("open","show", "disable"); openedCards = [];
     }, 500);
 
-   //Add new move
+//Add new move
   addMove();
 
   }
@@ -119,7 +119,6 @@ function sreset() {
   } else {
 
   //No opened cards
-
   currentCard.classList.add("open", "show", "disable");
   openedCards.push(this);
 
@@ -131,8 +130,8 @@ function sreset() {
 
   function isOver() {
 if(matchedCards.length === icons.length) {
-alert("GAME OVER! YOU Won! Do You Want to Play Again? Your Stars are " +  countStars  +  ". Your moves are "   +  moves  +
-			 ". Your timing in seconds is "    +  allSeconds );
+alert("GAME OVER! You Won! Do You Want to Play Again? Your Stars are " +  countStars  +  ". Your moves are "   +  moves  +
+			 ". Your timing in seconds is " +  allSeconds );
  clearInterval(timerVar);
 }
 }
@@ -145,7 +144,7 @@ function addMove() {
  moves++;
   movesContainer.innerHTML = moves;
 
-  // Set the rating
+// Set the rating
 rating();
 }
 //Rating
@@ -166,10 +165,6 @@ function rating() {
   }
 }
 
-
-
-
-
 //Restart button
 const restartBtn = document.querySelector(".restart");
 restartBtn.addEventListener("click", function(){
@@ -189,6 +184,5 @@ starsContainer.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa 
         		                <li><i class="fa fa-star"></i></li>`;
 
 });
-
 // Start the game
 startGame();
